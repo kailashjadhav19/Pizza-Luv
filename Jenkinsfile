@@ -2,8 +2,17 @@ pipeline {
   agent none
   stages {
     stage('Build') {
-      steps {
-        echo 'My Failed pipeline'
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'My Failed pipeline'
+          }
+        }
+        stage('1st stage') {
+          steps {
+            echo 'this is 1st stage'
+          }
+        }
       }
     }
     stage('test') {
