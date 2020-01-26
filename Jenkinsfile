@@ -13,6 +13,11 @@ pipeline {
             echo 'this is 1st stage'
           }
         }
+        stage('2nd stage') {
+          steps {
+            sh '$ls -al < abc.txt'
+          }
+        }
       }
     }
     stage('test') {
